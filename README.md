@@ -1,4 +1,4 @@
-# SAP Material Management Dashboard
+# SAP Materials Management Dashboard
 
 ## Overview
 This Streamlit in Snowflake application provides a visual analytics dashboard for SAP MAKT (Material Description) table data. The dashboard offers interactive visualizations and summary statistics to help analyze material management data across different languages and material types.

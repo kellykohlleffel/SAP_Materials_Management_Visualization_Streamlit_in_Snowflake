@@ -1,7 +1,51 @@
-# SAP Materials Management Visualization - Snowflake in Streamlit
- This creates a quick but visually appealing Snowflake in Streamlit application visualization using the MAKT table in SAP HANA.
+# SAP Material Management Dashboard
+
+## Overview
+This Streamlit in Snowflake application provides a visual analytics dashboard for SAP MAKT (Material Description) table data. The dashboard offers interactive visualizations and summary statistics to help analyze material management data across different languages and material types.
+
+## Prerequisites
+* Access to a Snowflake account with Streamlit in Snowflake enabled
+* Access to the SAP MAKT table in schema: `reliable_sap_snowflake_sapabap1`
+* Required table columns: `maktg`, `maktx`, `mandt`, `matnr`, `spras`
+
+## Features
+
+### 1. Materials by Language Visualization
+* Bar chart showing distribution of materials across different language codes
+* Interactive tooltips with detailed counts
+* Color-coded for easy differentiation
+
+### 2. Top Material Types Analysis
+* Donut chart displaying top 10 material types
+* Based on English language descriptions (SPRAS = 'E')
+* Interactive tooltips showing counts and percentages
+
+### 3. Summary Statistics
+* Total number of materials in the system
+* Number of supported languages
+* Quick-view metrics for key performance indicators
+
+### 4. Detailed Data Table
+* Sortable data grid showing language-wise material counts
+* Interactive sorting capabilities
+* Complete overview of material distribution
+
+## Installation Steps
+1. Navigate to Snowflake and create a new Streamlit application
+2. Select the following context:
+   * Database: Your database name
+   * Schema: `reliable_sap_snowflake_sapabap1`
+3. Copy the application code into the editor
+4. Click "Run" to deploy the dashboard
+
+## Streamlit Application Code
+The following code creates the complete dashboard. Copy this entire code block into your Streamlit in Snowflake application:
 
 ```
+# SAP Material Management Dashboard
+# A Streamlit in Snowflake application that visualizes SAP MAKT table data
+# Features: Language distribution, material type analysis, and summary metrics
+
 import streamlit as st
 import pandas as pd
 import altair as alt
@@ -102,3 +146,50 @@ try:
 except Exception as e:
     st.error(f"An error occurred: {str(e)}")
 ```
+
+## Data Architecture
+The application queries the following table:
+* Table: `makt`
+* Key columns used:
+  * `SPRAS`: Language code
+  * `MATNR`: Material number
+  * `MAKTX`: Material description
+
+## Technical Implementation
+* Built using Streamlit in Snowflake
+* Visualizations created with Altair
+* Uses Snowpark session for data access
+* Implements efficient data loading with direct SQL queries
+* Responsive design that adapts to window size
+
+## Performance Considerations
+* Queries are optimized to aggregate data at the database level
+* Limited to top 10 material types to ensure quick loading
+* Uses container width for responsive visualization sizing
+
+## Maintenance
+To update the dashboard:
+1. Access the Streamlit app in your Snowflake account
+2. Modify the code as needed
+3. Click "Run" to apply changes
+
+## Troubleshooting
+If you encounter issues:
+1. Verify schema access permissions
+2. Ensure the MAKT table contains data
+3. Check that all required columns are present
+4. Review the error message in the Streamlit interface
+
+## Future Enhancements
+Potential areas for expansion:
+* Add material search functionality
+* Implement time-based analysis
+* Include additional SAP tables for broader analysis
+* Add export capabilities for reports
+* Implement custom filtering options
+
+## Security
+The application uses Snowflake's native security features and requires appropriate access to:
+* The specified schema
+* The MAKT table
+* Streamlit in Snowflake functionality

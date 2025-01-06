@@ -193,3 +193,5 @@ The application uses Snowflake's native security features and requires appropria
 * The specified schema
 * The MAKT table
 * Streamlit in Snowflake functionality
+
+![Streamlit in Snowflake SAP Matl Mgmt Data App](images/sap_matl_mgmt.png)
